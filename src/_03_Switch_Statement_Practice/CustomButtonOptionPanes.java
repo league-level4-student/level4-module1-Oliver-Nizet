@@ -10,8 +10,30 @@ public class CustomButtonOptionPanes {
 				options, 0);
 
 		String choice = options[input];
-		
-		//use a switch statement to do something cool for each option
-		
+
+		// use a switch statement to do something cool for each option
+		switch (choice) {
+		case "Sunday":
+			JOptionPane.showMessageDialog(null, "You have no purpose in life");
+			break;
+		case "Monday":
+			JOptionPane.showMessageDialog(null, "You have no friends");
+			break;
+		case "Tuesday":
+			JOptionPane.showMessageDialog(null, "Your family doesnt love you");
+			break;
+		case "Wednesday":
+			JOptionPane.showMessageDialog(null, "You are bad at sports");
+			break;
+		case "Thursday":
+			JOptionPane.showMessageDialog(null, "You are dumb");
+			break;
+		case "Friday":
+			JOptionPane.showMessageDialog(null, "Nobody cares about you");
+			break;
+		case "Saturday":
+			JOptionPane.showMessageDialog(null, "You chose the best day of the week! You are awesome!");
+			break;
+		}
 	}
 }
