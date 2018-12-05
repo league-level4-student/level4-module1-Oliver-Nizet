@@ -20,7 +20,10 @@ import javax.swing.Timer;
 
 public class _00_SnakeGame implements ActionListener, KeyListener {
 	public static final Color BORDER_COLOR = Color.WHITE;
-	public static final Color BACKGROUND_COLOR = Color.BLACK;
+	public static final Color bcl = new Color(150, 210, 75);
+	public static final Color BACKGROUND_COLOR_LIGHT = bcl;
+	public static final Color bcd = new Color(255, 0, 0);
+	public static final Color BACKGROUND_COLOR_DARK = bcd;
 	public static final Color FOOD_COLOR = Color.RED;
 	public static final int WIDTH = 15;
 	public static final int HEIGHT = 12;
@@ -48,8 +51,17 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 			public void paintComponent(Graphics g) {
 				Graphics2D g2 = (Graphics2D) g;
 
-				g2.setColor(BACKGROUND_COLOR);
-				g2.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+				for (int i = 0; i < WINDOW_WIDTH; i += snake.BODY_SIZE) {
+					for (int j = 0; j < WINDOW_HEIGHT; j += snake.BODY_SIZE) {
+						if (i > snake.BODY_SIZE) {
+							g2.setColor(BACKGROUND_COLOR_LIGHT);
+						} else {
+							g2.setColor(BACKGROUND_COLOR_DARK);
+						}
+
+						g2.fillRect(i, j, snake.BODY_SIZE, snake.BODY_SIZE);
+					}
+				}
 
 				g2.setColor(FOOD_COLOR);
 				g2.drawOval(foodLocation.x * WINDOW_SCALE, foodLocation.y * WINDOW_SCALE, Snake.BODY_SIZE,
@@ -88,13 +100,13 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		// of the game. The smaller the number, the faster it goes.
 		switch (input) {
 		case 0:
-			timer.setDelay(1);
+			timer.setDelay(50);
 			break;
 		case 1:
-			timer.setDelay(5);
+			timer.setDelay(100);
 			break;
 		case 2:
-			timer.setDelay(10);
+			timer.setDelay(200);
 			break;
 		}
 		// 3. start the timer
@@ -171,7 +183,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 			System.exit(0);
 			break;
 		case 1:
-			Location s = new Location(0, 0);
+			Location s = new Location(1, 1);
 			snake.reset(s);
 			setFoodLocation();
 			timer.start();
