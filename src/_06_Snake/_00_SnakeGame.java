@@ -20,11 +20,12 @@ import javax.swing.Timer;
 
 public class _00_SnakeGame implements ActionListener, KeyListener {
 	public static final Color BORDER_COLOR = Color.WHITE;
-	public static final Color bcl = new Color(150, 210, 75);
+	public static final Color bcl = new Color(148, 224, 78);
 	public static final Color BACKGROUND_COLOR_LIGHT = bcl;
-	public static final Color bcd = new Color(255, 0, 0);
+	public static final Color bcd = new Color(140, 218, 70);
 	public static final Color BACKGROUND_COLOR_DARK = bcd;
-	public static final Color FOOD_COLOR = Color.RED;
+	public static final Color fc = new Color(250, 42, 0);
+	public static final Color FOOD_COLOR = fc;
 	public static final int WIDTH = 15;
 	public static final int HEIGHT = 12;
 	public static final int WINDOW_SCALE = 50;
@@ -50,21 +51,102 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 			@Override
 			public void paintComponent(Graphics g) {
 				Graphics2D g2 = (Graphics2D) g;
-
-				for (int i = 0; i < WINDOW_WIDTH; i += snake.BODY_SIZE) {
-					for (int j = 0; j < WINDOW_HEIGHT; j += snake.BODY_SIZE) {
-						if (i > snake.BODY_SIZE) {
-							g2.setColor(BACKGROUND_COLOR_LIGHT);
-						} else {
-							g2.setColor(BACKGROUND_COLOR_DARK);
-						}
-
-						g2.fillRect(i, j, snake.BODY_SIZE, snake.BODY_SIZE);
-					}
-				}
+				g2.setColor(BACKGROUND_COLOR_LIGHT);
+				g2.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+				g2.setColor(BACKGROUND_COLOR_DARK);
+				g2.fillRect(0, WINDOW_SCALE, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(0, WINDOW_SCALE * 3, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(0, WINDOW_SCALE * 5, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(0, WINDOW_SCALE * 7, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(0, WINDOW_SCALE * 9, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(0, WINDOW_SCALE * 11, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE, 0, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE, WINDOW_SCALE * 2, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE, WINDOW_SCALE * 4, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE, WINDOW_SCALE * 6, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE, WINDOW_SCALE * 8, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE, WINDOW_SCALE * 10, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 2, WINDOW_SCALE, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 2, WINDOW_SCALE * 3, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 2, WINDOW_SCALE * 5, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 2, WINDOW_SCALE * 7, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 2, WINDOW_SCALE * 9, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 2, WINDOW_SCALE * 11, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 3, 0, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 3, WINDOW_SCALE * 2, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 3, WINDOW_SCALE * 4, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 3, WINDOW_SCALE * 6, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 3, WINDOW_SCALE * 8, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 3, WINDOW_SCALE * 10, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 4, WINDOW_SCALE, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 4, WINDOW_SCALE * 3, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 4, WINDOW_SCALE * 5, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 4, WINDOW_SCALE * 7, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 4, WINDOW_SCALE * 9, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 4, WINDOW_SCALE * 11, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 5, 0, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 5, WINDOW_SCALE * 2, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 5, WINDOW_SCALE * 4, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 5, WINDOW_SCALE * 6, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 5, WINDOW_SCALE * 8, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 5, WINDOW_SCALE * 10, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 6, WINDOW_SCALE, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 6, WINDOW_SCALE * 3, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 6, WINDOW_SCALE * 5, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 6, WINDOW_SCALE * 7, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 6, WINDOW_SCALE * 9, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 6, WINDOW_SCALE * 11, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 7, 0, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 7, WINDOW_SCALE * 2, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 7, WINDOW_SCALE * 4, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 7, WINDOW_SCALE * 6, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 7, WINDOW_SCALE * 8, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 7, WINDOW_SCALE * 10, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 8, WINDOW_SCALE, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 8, WINDOW_SCALE * 3, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 8, WINDOW_SCALE * 5, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 8, WINDOW_SCALE * 7, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 8, WINDOW_SCALE * 9, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 8, WINDOW_SCALE * 11, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 9, 0, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 9, WINDOW_SCALE * 2, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 9, WINDOW_SCALE * 4, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 9, WINDOW_SCALE * 6, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 9, WINDOW_SCALE * 8, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 9, WINDOW_SCALE * 10, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 10, WINDOW_SCALE, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 10, WINDOW_SCALE * 3, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 10, WINDOW_SCALE * 5, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 10, WINDOW_SCALE * 7, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 10, WINDOW_SCALE * 9, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 10, WINDOW_SCALE * 11, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 11, 0, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 11, WINDOW_SCALE * 2, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 11, WINDOW_SCALE * 4, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 11, WINDOW_SCALE * 6, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 11, WINDOW_SCALE * 8, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 11, WINDOW_SCALE * 10, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 12, WINDOW_SCALE, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 12, WINDOW_SCALE * 3, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 12, WINDOW_SCALE * 5, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 12, WINDOW_SCALE * 7, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 12, WINDOW_SCALE * 9, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 12, WINDOW_SCALE * 11, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 13, 0, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 13, WINDOW_SCALE * 2, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 13, WINDOW_SCALE * 4, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 13, WINDOW_SCALE * 6, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 13, WINDOW_SCALE * 8, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 13, WINDOW_SCALE * 10, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 14, WINDOW_SCALE, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 14, WINDOW_SCALE * 3, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 14, WINDOW_SCALE * 5, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 14, WINDOW_SCALE * 7, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 14, WINDOW_SCALE * 9, snake.BODY_SIZE, snake.BODY_SIZE);
+				g2.fillRect(WINDOW_SCALE * 14, WINDOW_SCALE * 11, snake.BODY_SIZE, snake.BODY_SIZE);
 
 				g2.setColor(FOOD_COLOR);
-				g2.drawOval(foodLocation.x * WINDOW_SCALE, foodLocation.y * WINDOW_SCALE, Snake.BODY_SIZE,
+				g2.fillOval(foodLocation.x * WINDOW_SCALE, foodLocation.y * WINDOW_SCALE, Snake.BODY_SIZE,
 						Snake.BODY_SIZE);
 				snake.draw(g);
 			}
@@ -100,10 +182,10 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		// of the game. The smaller the number, the faster it goes.
 		switch (input) {
 		case 0:
-			timer.setDelay(50);
+			timer.setDelay(100);
 			break;
 		case 1:
-			timer.setDelay(100);
+			timer.setDelay(150);
 			break;
 		case 2:
 			timer.setDelay(200);
@@ -111,6 +193,8 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		}
 		// 3. start the timer
 		timer.start();
+		snake.feed();
+		snake.feed();
 	}
 
 	public static void main(String[] args) {
@@ -155,16 +239,14 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	private void setFoodLocation() {
 		// 1. Create a new Location object that is set to a random location
 		Random ran = new Random();
-		int ranX = ran.nextInt(100);
-		int ranY = ran.nextInt(100);
+		int ranX = ran.nextInt(15);
+		int ranY = ran.nextInt(12);
 		Location loc = new Location(ranX, ranY);
 		// 2. set the foodLocation variable equal to the Location object you
 		// just created.
 		// use the snake's isLocationOnSnake method to make sure you don't put
 		// the food on the snake
-		if (snake.isLocationOnSnake(loc) == false) {
-			foodLocation = loc;
-		}
+		foodLocation = loc;
 	}
 
 	private void gameOver() {
@@ -183,10 +265,12 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 			System.exit(0);
 			break;
 		case 1:
-			Location s = new Location(1, 1);
+			Location s = new Location(7, 6);
 			snake.reset(s);
 			setFoodLocation();
 			timer.start();
+			snake.feed();
+			snake.feed();
 			break;
 		default:
 			break;
@@ -209,7 +293,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		}
 		// 3. if the location of the head is equal to the location of the food,
 		// feed the snake and set the food location
-		if (snake.getHeadLocation() == foodLocation) {
+		if (snake.getHeadLocation().equals(foodLocation)) {
 			snake.feed();
 			setFoodLocation();
 		}

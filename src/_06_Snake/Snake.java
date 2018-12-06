@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class Snake {
-	public static final Color sc = new Color(70, 100, 200);
+	public static final Color sc = new Color(85, 105, 250);
 	public static final Color SNAKE_COLOR = sc;
 	public static final int BODY_SIZE = 50;
 
@@ -116,6 +116,7 @@ public class Snake {
 		snake.clear();
 		// 2. set the location of the head
 		head.setLocation(loc);
+		currentDirection = Direction.RIGHT;
 		// 3. add the head to the snake
 		snake.add(head);
 	}
@@ -124,7 +125,8 @@ public class Snake {
 		// 1. complete the method so it returns true if the head of the snake is
 		// outsize of the window
 		// and false otherwise
-		if (head.getLocation().x > _00_SnakeGame.WINDOW_WIDTH) {
+		if (getHeadLocation().x > 14 || getHeadLocation().y > 11 || getHeadLocation().x < 0
+				|| getHeadLocation().y < 0) {
 			return true;
 		} else {
 			return false;
@@ -134,7 +136,11 @@ public class Snake {
 	public boolean isHeadCollidingWithBody() {
 		// 1. complete the method so it returns true if the head is located
 		// in the same location as any other body segment
-
+		for (int i = snake.size() - 2; i < 0; i++) {
+			if (snake.get(i).getLocation().equals(getHeadLocation())) {
+				return true;
+			}
+		}
 		return false;
 	}
 
