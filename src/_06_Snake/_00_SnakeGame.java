@@ -170,7 +170,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	public void startGame() {
 		// 1. Save the instructions for the game in the following string
 		// variable.
-		String instructions = "Use the arrow keys to move and collect the items";
+		String instructions = "Use the arrow keys to move and collect the food";
 
 		String[] options = new String[] { "Expert", "Moderate", "Beginner" };
 		int input = JOptionPane.showOptionDialog(null, instructions, "Snake", 0, -1, null, options, 0);
@@ -253,7 +253,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		// 1. stop the timer
 		timer.stop();
 		// 2. tell the user their snake is dead
-		JOptionPane.showMessageDialog(null, "Your Snake is Dead");
+		JOptionPane.showMessageDialog(null, "Your Snake is Dead\nYour Score was " + (Snake.snake.size() - 3));
 		// 3. ask them if they want to play again.
 		String[] options = new String[] { "No", "Yes" };
 		int a = JOptionPane.showOptionDialog(null, "Would you like to play again?", "Snake", 0, -1, null, options, 0);

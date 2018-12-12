@@ -10,7 +10,7 @@ public class Snake {
 	public static final int BODY_SIZE = 50;
 
 	private SnakeSegment head;
-	private ArrayList<SnakeSegment> snake;
+	static ArrayList<SnakeSegment> snake;
 
 	private Direction currentDirection;
 
